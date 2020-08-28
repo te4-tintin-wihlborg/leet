@@ -16,10 +16,10 @@ defmodule Split do
     :world
   end
 
-  def split(a, b) do
-    [head | tail] = a 
-    IO.inspect head
-    IO.inspect tail
+  def split(list, count), do: _split(list, [], count)
+  defp _split(tail, front, 0), do: [Enum.reverse(front), tail]
+  defp _split([head | tail], front, count) do
+    _split(tail, [head | front], count - 1)
   end
 
 end
