@@ -7,6 +7,6 @@ defmodule SplitTest do
   end
 
   test "splits the string with space delimitter" do
-    assert Split.split("Hello World", " ") == ["Hello", "World"]
+    assert Split.split('Hello World', " ") == ["Hello", "World"]
   end
 end

@@ -17,7 +17,9 @@ defmodule Split do
   end
 
   def split(a, b) do
-    IO.inspect [head | tail] = a 
+    [head | tail] = a 
+    IO.inspect head
+    IO.inspect tail
   end
 
 end
