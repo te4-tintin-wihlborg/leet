@@ -6,4 +6,7 @@ defmodule SplitTest do
     assert Split.hello() == :world
   end
 
+  test "splits the string with space delimitter" do
+    assert Split.split("Hello World", " ") == ["Hello", "World"]
+  end
 end
