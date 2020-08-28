@@ -15,4 +15,9 @@ defmodule Split do
   def hello do
     :world
   end
+
+  def split(a, b) do
+    IO.inspect [head | tail] = a 
+  end
+
 end
