@@ -18,7 +18,7 @@ defmodule Split do
 
   def split(list, char), do: _split(list, [], char)
   defp _split([], front, _), do: [Enum.reverse(front)]
-  defp _split(tail, [head | front], char) when char == head, do: [Enum.reverse(front), tail]
+  defp _split(tail, [head | front], char) when char == head, do: [Enum.reverse(front), split(tail, char)]
   defp _split([head | tail], front, char), do: _split(tail, [head | front], char)
 
 end
