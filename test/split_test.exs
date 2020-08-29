@@ -21,4 +21,8 @@ defmodule SplitTest do
   test "doesn't crash when no occurences of delimitter" do
     assert Split.split([1, 2, 3], 4) == [[1, 2, 3]]
   end
+
+  test "splits charlist with multiple delimitters" do
+    assert Split.split([1, 2, 3, 4, 5, 6, 4, 7, 8], 4) == [[1, 2, 3], [5, 6], [7, 8]]
+  end
 end
