@@ -11,6 +11,14 @@ defmodule SplitTest do
   #end
 
   test "splits number" do
-    assert Split.split([1, 5, 5, 4, 5, 6], 2) == 0
+    assert Split.split([1, 2, 3, 4, 5], 3) == [[1, 2], [4, 5]]
+  end
+
+  test "splits charlist" do
+    assert Split.split('Hello World', ?\s) == ['Hello', 'World']
+  end
+
+  test "doesn't crash when no occurences of delimitter" do
+    assert Split.split([1, 2, 3], 4) == [[1, 2, 3]]
   end
 end

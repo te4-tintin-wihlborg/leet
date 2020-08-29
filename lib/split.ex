@@ -16,10 +16,8 @@ defmodule Split do
     :world
   end
 
-  def split(list, count), do: _split(list, [], count)
-  defp _split(tail, front, 0), do: [Enum.reverse(front), tail]
-  defp _split([head | tail], front, count) do
-    _split(tail, [head | front], count - 1)
-  end
+  def split(list, char), do: _split(list, [], char)
+  defp _split(tail, [head | front], char) when char == head, do: [Enum.reverse(front), tail]
+  defp _split([head | tail], front, char), do: _split(tail, [head | front], char)
 
 end
