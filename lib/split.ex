@@ -16,9 +16,14 @@ defmodule Split do
     :world
   end
 
+  def concat([value], list), do: [value | list]
+  def concat([head | tail], list) do
+    [head | concat(tail, list)]
+  end
+
   def split(list, char), do: _split(list, [], char)
   defp _split([], front, _), do: [Enum.reverse(front)]
-  defp _split(tail, [head | front], char) when char == head, do: [Enum.reverse(front), split(tail, char)]
+  defp _split(tail, [head | front], char) when char == head, do: concat([Enum.reverse(front)], split(tail, char))
   defp _split([head | tail], front, char), do: _split(tail, [head | front], char)
 
 end
