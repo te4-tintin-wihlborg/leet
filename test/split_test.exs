@@ -25,4 +25,12 @@ defmodule SplitTest do
   test "splits charlist with multiple delimitters" do
     assert Split.split([1, 2, 3, 4, 5, 6, 4, 7, 8], 4) == [[1, 2, 3], [5, 6], [7, 8]]
   end
+
+  test "splits charlist where first element is delimitter" do
+    assert Split.split([1], 1) == [[],[]]
+  end
+
+  test "splits charlist is empty" do
+    assert Split.split([], 1) == [[]]
+  end
 end
