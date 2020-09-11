@@ -2,10 +2,6 @@ defmodule SplitTest do
   use ExUnit.Case
   doctest Split
 
-  test "greets the world" do
-    assert Split.hello() == :world
-  end
-
   test "splits the string with space delimitter" do
     assert Split.split("Hello World", " ") == ["Hello", "World"]
   end
@@ -24,5 +20,9 @@ defmodule SplitTest do
 
   test "splits empty string" do
     assert Split.split("", " ") == [""]
+  end
+
+  test "splits string with utf8 characters" do
+    assert Split.split("i löve sweden", "ö") == ["i l", "ve sweden"]
   end
 end
